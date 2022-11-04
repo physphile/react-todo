@@ -23,18 +23,20 @@ button:hover {
 
 :root {
     --color-primary: #34be5b;
+    --header-height: 56px;
     --text-color-primary: black;
     --text-color-high-emphasis: rgba(0,0,0, 87%);
     --text-color-helper: rgba(0,0,0, 60%);
     --background-color-elevation-0: white;
-    --background-color-elevation-1: white;
-    --background-color-elevation-2: white;
-    --background-color-elevation-3: white;
-    --background-color-elevation-4: white;
-    --background-color-elevation-5: white;
-    --background-color-elevation-6: white;
-    --background-color-elevation-7: white;
-    --background-color-elevation-8: white;
+    --background-color-elevation-1: none;
+    --background-color-elevation-2: none;
+    --background-color-elevation-3: none;
+    --background-color-elevation-4: none;
+    --background-color-elevation-5: none;
+    --background-color-elevation-6: none;
+    --background-color-elevation-7: none;
+    --background-color-elevation-8: none;
+    --box-shadow-elevation-1: 0 1px 4px rgba(0, 100, 10, 0.2);
     --box-shadow-elevation-2: 0 2px 8px rgba(0, 100, 10, 0.2);
     --box-shadow-elevation-8: 0 4px 25px rgba(0, 100, 10, 0.2);
 }
@@ -46,6 +48,8 @@ button:hover {
 
 [theme="dark"] {
         --text-color-primary: #e3e3e3;
+        --text-color-high-emphasis: rgba(227,227,227, 87%);
+        --text-color-helper: rgba(227,227,227, 60%);
         --background-color-elevation-0: #121212;
         --theme-color: black;
         --background-color-elevation-1: rgba(255,255,255, 5%);
@@ -56,6 +60,7 @@ button:hover {
         --background-color-elevation-6: rgba(255,255,255, 12%);
         --background-color-elevation-7: rgba(255,255,255, 14%);
         --background-color-elevation-8: rgba(255,255,255, 15%);
+        --box-shadow-elevation-1: none;
         --box-shadow-elevation-2: none;
         --box-shadow-elevation-8: none;
 }
