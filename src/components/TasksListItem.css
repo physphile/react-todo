@@ -1,0 +1,16 @@
+.tasks-list-item {
+    padding: 12px 18px;
+    background: var(--background-color-elevation-2);
+    box-shadow: var(--box-shadow-elevation-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow .3s ease, font-size .3s ease, background-color .3s ease;
+}
+
+.tasks-list-item:hover {
+    box-shadow: var(--box-shadow-elevation-8);
+    background: var(--background-color-elevation-8);
+    font-size: 1.04rem;
+}
