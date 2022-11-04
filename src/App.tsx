@@ -1,12 +1,14 @@
-import React, { createElement as e, useState} from 'react';
-import {Product} from "./components/Product"
+import PageHome from "./pages/PageHome";
+import SuperHeader from "./components/SuperHeader";
+import {RecoilRoot} from "recoil";
 
 function App() {
-  return (
-    <div className="container mx-auto max-w-2xl pt-5">
-      <Product></Product>
-    </div>
-  )
+    return (
+        <RecoilRoot>
+            <SuperHeader/>
+            <PageHome />
+        </RecoilRoot>
+    )
 }
 
 export default App;

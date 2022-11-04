@@ -1,0 +1,28 @@
+.super-header-menu {
+    display: flex;
+    column-gap: 1em;
+    padding: 0;
+}
+
+.super-header-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.super-header-menu-item {
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+.super-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.super-header-title {
+    font-family: Montserrat, sans-serif;
+    color: var(--color-primary);
+}

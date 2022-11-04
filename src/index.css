@@ -1,3 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color-primary);
+    font-family: Roboto, sans-serif;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    transition: background-color .2s ease;
+}
+button:hover {
+    background: var(--background-color-elevation-4);
+    transition: background-color .3s ease;
+}
+
+:root {
+    --color-primary: #34be5b;
+    --text-color-primary: black;
+    --text-color-high-emphasis: rgba(0,0,0, 87%);
+    --text-color-helper: rgba(0,0,0, 60%);
+    --background-color-elevation-0: white;
+    --background-color-elevation-1: white;
+    --background-color-elevation-2: white;
+    --background-color-elevation-3: white;
+    --background-color-elevation-4: white;
+    --background-color-elevation-5: white;
+    --background-color-elevation-6: white;
+    --background-color-elevation-7: white;
+    --background-color-elevation-8: white;
+    --box-shadow-elevation-2: 0 2px 8px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-8: 0 4px 25px rgba(0, 100, 10, 0.2);
+}
+
+#root {
+    background: var(--background-color-elevation-0);
+    transition: background-color .3s ease;
+}
+
+[theme="dark"] {
+        --text-color-primary: #e3e3e3;
+        --background-color-elevation-0: #121212;
+        --theme-color: black;
+        --background-color-elevation-1: rgba(255,255,255, 5%);
+        --background-color-elevation-2: rgba(255,255,255, 7%);
+        --background-color-elevation-3: rgba(255,255,255, 8%);
+        --background-color-elevation-4: rgba(255,255,255, 9%);
+        --background-color-elevation-5: rgba(255,255,255, 11%);
+        --background-color-elevation-6: rgba(255,255,255, 12%);
+        --background-color-elevation-7: rgba(255,255,255, 14%);
+        --background-color-elevation-8: rgba(255,255,255, 15%);
+        --box-shadow-elevation-2: none;
+        --box-shadow-elevation-8: none;
+}
