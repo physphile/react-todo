@@ -1,15 +1,16 @@
-import TasksList from "../components/TasksList";
-import useTasksList from "../hooks/tasksList";
-import "./PageHome.css"
+import TasksList from '../components/TasksList';
+import useTasksList from '../hooks/tasksList';
+import styles from './PageHome.module.css';
 
-export default function PageHome () {
-    const {tasksList} = useTasksList();
+export default function PageHome() {
+  console.log(styles);
+  const { tasksList } = useTasksList();
 
-    return (
-        <main className="container">
-            <h2>Список дел</h2>
-            <hr/>
-            <TasksList tasksList={tasksList}/>
-        </main>
-    )
+  return (
+    <main className="container">
+      <h2>Todo list</h2>
+      <hr />
+      <TasksList tasksList={tasksList} />
+    </main>
+  );
 }

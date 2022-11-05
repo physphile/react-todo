@@ -1,21 +1,21 @@
-.super-header-menu {
+menu {
     display: flex;
     column-gap: 1em;
     padding: 0;
 }
 
-.super-header-buttons {
+.buttons {
     display: flex;
     justify-content: flex-end;
 }
 
-.super-header-menu-item {
+.menuItem {
     background: none;
     border: none;
     font-size: 18px;
 }
 
-.super-header {
+header {
     height: var(--header-height);
     display: flex;
     align-items: center;
@@ -28,7 +28,8 @@
     box-shadow: var(--box-shadow-elevation-1);
     transition: background-color .3s ease;
 }
-.super-header:before {
+
+header:before {
     position: absolute;
     content: '';
     top: 0;
@@ -42,7 +43,7 @@
 
 }
 
-.super-header-title {
+h1 {
     font-family: Montserrat, sans-serif;
     color: var(--color-primary);
 }

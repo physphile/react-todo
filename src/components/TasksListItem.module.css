@@ -1,10 +1,15 @@
-.tasks-list-item-summary {
+summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: box-shadow .3s ease, font-size .3s ease, background-color .3s ease;
 }
-.tasks-list-item-details {
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details {
     background: var(--background-color-elevation-2);
     box-shadow: var(--box-shadow-elevation-2);
     border-radius: 10px;
@@ -13,33 +18,18 @@
     transition: background-color .3s ease, box-shadow .3s ease;
 }
 
-.tasks-list-item-info-cell {
+details:hover {
+    box-shadow: var(--box-shadow-elevation-8);
+    background: var(--background-color-elevation-8);
+}
+
+td {
     padding: 4px 8px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 500;
 }
 
-.tasks-list-item-summary::-webkit-details-marker {
-    display: none;
-}
-
-.tasks-list-item-title {
+h3 {
     flex: 1;
     margin-left: 1em;
-}
-
-.no-pointer-events {
-    pointer-events: none;
-}
-
-.high-emphasis {
-    color: var(--text-color-high-emphasis);
-}
-
-.helper {
-    color: var(--text-color-helper);
-}
-.tasks-list-item-details:hover {
-    box-shadow: var(--box-shadow-elevation-8);
-    background: var(--background-color-elevation-8);
 }
