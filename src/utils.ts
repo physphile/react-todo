@@ -1,13 +1,13 @@
 export function getSystemDarkTheme(): string {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 export function switchTheme(): void {
-  const curTheme = getDocumentAttribute('theme');
-  const newTheme = curTheme === 'dark' ? 'light' : 'dark';
-  setDocumentAttribute('theme', newTheme);
+  const curTheme = getDocumentAttribute("theme");
+  const newTheme = curTheme === "dark" ? "light" : "dark";
+  setDocumentAttribute("theme", newTheme);
 }
 
 export function getDocumentAttribute(name: string): string | null {
@@ -19,12 +19,12 @@ export function setDocumentAttribute(name: string, value: string): void {
 }
 
 export enum GlobalAttributes {
-  Theme = 'theme'
+  Theme = "theme",
 }
 
 export enum IconsNames {
-  expandMore = 'expand_more',
-  expandLess = 'expand_less',
-  deleteIcon = 'delete',
-  darkMode = 'dark_mode'
+  expandLess = "expand_less",
+  expandMore = "expand_more",
+  deleteIcon = "delete",
+  darkMode = "dark_mode",
 }
