@@ -1,4 +1,4 @@
-menu {
+.menu {
     display: flex;
     column-gap: 1em;
     padding: 0;
@@ -15,7 +15,7 @@ menu {
     font-size: 18px;
 }
 
-header {
+.header {
     height: var(--header-height);
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ header {
     transition: background-color .3s ease;
 }
 
-header:before {
+.header:before {
     position: absolute;
     content: '';
     top: 0;
@@ -43,7 +43,13 @@ header:before {
 
 }
 
-h1 {
+.h1 {
     font-family: Montserrat, sans-serif;
     color: var(--color-primary);
+}
+
+@media screen and (max-width: 575px) {
+    .header {
+        padding: 0;
+    }
 }

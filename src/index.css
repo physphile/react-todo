@@ -14,20 +14,27 @@ button {
     align-items: center;
     justify-content: center;
     padding: 8px;
+    border-radius: 4px;
     transition: background-color .2s ease;
 }
 
 button:hover {
-    background: var(--background-color-elevation-4);
+    background: var(--background-color-hover);
     transition: background-color .3s ease;
 }
 
 :root {
     --color-primary: #34be5b;
+    --color-primary-dark: #117c2d;
+    --color-primary-light: #86df9d;
+    --color-error: #b00020;
     --header-height: 56px;
     --text-color-primary: black;
+    --text-color-contrast: #e3e3e3;
     --text-color-high-emphasis: rgba(0, 0, 0, 87%);
+    --text-color-high-emphasis-disabled: rgba(0, 0, 0, 33%);
     --text-color-helper: rgba(0, 0, 0, 60%);
+    --text-color-disabled: rgba(0, 0, 0, 38%);
     --background-color-elevation-0: white;
     --background-color-elevation-1: none;
     --background-color-elevation-2: none;
@@ -39,7 +46,13 @@ button:hover {
     --background-color-elevation-8: none;
     --box-shadow-elevation-1: 0 1px 4px rgba(0, 100, 10, 0.2);
     --box-shadow-elevation-2: 0 2px 8px rgba(0, 100, 10, 0.2);
-    --box-shadow-elevation-8: 0 4px 25px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-3: 0 3px 12px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-4: 0 4px 16px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-5: 0 5px 20px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-6: 0 6px 24px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-7: 0 7px 28px rgba(0, 100, 10, 0.2);
+    --box-shadow-elevation-8: 0 8px 32px rgba(0, 100, 10, 0.2);
+    --background-color-hover: rgba(0, 0, 0, 9%)
 }
 
 #root {
@@ -49,21 +62,33 @@ button:hover {
 
 [theme="dark"] {
     --text-color-primary: #e3e3e3;
+    --text-color-contrast: black;
     --text-color-high-emphasis: rgba(227, 227, 227, 87%);
+    --text-color-high-emphasis-disabled: rgba(227, 227, 227, 33%);
     --text-color-helper: rgba(227, 227, 227, 60%);
+    --text-color-disabled: rgba(227, 227, 227, 38%);
+    --color-error: #cf6679;
     --background-color-elevation-0: #121212;
     --theme-color: black;
     --background-color-elevation-1: rgba(255, 255, 255, 5%);
     --background-color-elevation-2: rgba(255, 255, 255, 7%);
+    --background-color-elevation-2-disabled: rgba(255, 255, 255, 2%);
     --background-color-elevation-3: rgba(255, 255, 255, 8%);
     --background-color-elevation-4: rgba(255, 255, 255, 9%);
     --background-color-elevation-5: rgba(255, 255, 255, 11%);
     --background-color-elevation-6: rgba(255, 255, 255, 12%);
     --background-color-elevation-7: rgba(255, 255, 255, 14%);
     --background-color-elevation-8: rgba(255, 255, 255, 15%);
+    --background-color-elevation-8-disabled: rgba(255, 255, 255, 3%);
     --box-shadow-elevation-1: none;
     --box-shadow-elevation-2: none;
+    --box-shadow-elevation-3: none;
+    --box-shadow-elevation-4: none;
+    --box-shadow-elevation-5: none;
+    --box-shadow-elevation-6: none;
+    --box-shadow-elevation-7: none;
     --box-shadow-elevation-8: none;
+    --background-color-hover: var(--background-color-elevation-1)
 }
 
 .no-pointer-events {
@@ -76,4 +101,55 @@ button:hover {
 
 .helper {
     color: var(--text-color-helper);
+}
+
+.p-0 {
+    padding: 0;
+}
+
+input[type="checkbox"] {
+    height: 25px;
+    width: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: var(--background-color-elevation-2);
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--color-primary);
+}
+
+input[type="checkbox"]:checked:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: '\2714';
+    font-weight: bold;
+    color: var(--text-color-contrast);
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.text-disabled {
+    color: var(--text-color-disabled);
+}
+
+.high-emphasis-disabled {
+    color: var(--text-color-high-emphasis-disabled)
 }

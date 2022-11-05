@@ -1,6 +1,7 @@
 export default interface Task {
-    userId: number,
-    id: number,
-    title: string,
-    completed: boolean
+  id: number;
+  title: string;
+  completed: boolean;
+  creationDate: Date;
+  completionDate: Date | null;
 }
