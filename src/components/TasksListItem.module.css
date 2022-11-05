@@ -1,15 +1,15 @@
-summary {
+.summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: box-shadow .3s ease, font-size .3s ease, background-color .3s ease;
 }
 
-summary::-webkit-details-marker {
+.summary::-webkit-details-marker {
     display: none;
 }
 
-details {
+.details {
     background: var(--background-color-elevation-2);
     box-shadow: var(--box-shadow-elevation-2);
     border-radius: 10px;
@@ -18,18 +18,27 @@ details {
     transition: background-color .3s ease, box-shadow .3s ease;
 }
 
-details:hover {
-    box-shadow: var(--box-shadow-elevation-8);
-    background: var(--background-color-elevation-8);
+.details:hover {
+    box-shadow: var(--box-shadow-elevation-4);
+    background: var(--background-color-elevation-4);
 }
 
-td {
+.disabled {
+    background: var(--background-color-elevation-2-disabled);
+}
+
+.disabled:hover {
+    background: var(--background-color-elevation-8-disabled);
+}
+
+.details p {
     padding: 4px 8px;
-    font-family: 'JetBrains Mono', monospace;
+    font-style: italic;
+    /*font-family: 'JetBrains Mono', monospace;*/
     font-weight: 500;
 }
 
-h3 {
+.h3 {
     flex: 1;
     margin-left: 1em;
 }

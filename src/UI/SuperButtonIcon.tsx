@@ -1,6 +1,6 @@
-import { MouseEventHandler } from 'react';
-import './SuperButtonIcon.module.css';
-import { IconsNames } from '../utils';
+import { MouseEventHandler } from "react";
+import styles from "./SuperButtonIcon.module.css";
+import IconsNames from "../icons";
 
 interface SuperButtonIconProps {
   iconName: IconsNames;
@@ -11,11 +11,13 @@ interface SuperButtonIconProps {
 export default function SuperButtonIcon({
   iconName,
   onClick = () => {},
-  className = ''
+  className = "",
 }: SuperButtonIconProps) {
+  const { button } = styles;
+
   return (
-    <button onClick={onClick} className={className}>
-      <span className="material-symbols-outlined" style={{ color: 'inherit' }}>
+    <button onClick={onClick} className={[className, button].join(" ")}>
+      <span className="material-symbols-outlined" style={{ color: "inherit" }}>
         {iconName}
       </span>
     </button>
