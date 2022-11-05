@@ -1,14 +1,14 @@
-import PageHome from "./pages/PageHome";
-import SuperHeader from "./components/SuperHeader";
-import {RecoilRoot} from "recoil";
+import PageHome from './pages/PageHome';
+import SuperHeader from './components/SuperHeader';
+import { RecoilRoot } from 'recoil';
 
 function App() {
-    return (
-        <RecoilRoot>
-            <SuperHeader/>
-            <PageHome />
-        </RecoilRoot>
-    )
+  return (
+    <RecoilRoot>
+      <SuperHeader />
+      <PageHome />
+    </RecoilRoot>
+  );
 }
 
 export default App;

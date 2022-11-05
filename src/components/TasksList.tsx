@@ -1,17 +1,17 @@
-import Task from "../models"
-import TasksListItem from "./TasksListItem";
-import "./TasksList.css"
+import Task from '../models';
+import TasksListItem from './TasksListItem';
+import styles from './TasksList.module.css';
 
 interface TasksListProps {
-    tasksList: Task[];
+  tasksList: Task[];
 }
 
-export default function TasksList ({tasksList}: TasksListProps) {
-    return (
-        <div className="tasks-list">
-            {tasksList.map(task => (
-                <TasksListItem task={task} key={task.id}/>
-            ))}
-        </div>
-    )
+export default function TasksList({ tasksList }: TasksListProps) {
+  return (
+    <div className={styles.tasksList}>
+      {tasksList.map((task) => (
+        <TasksListItem task={task} key={task.id} />
+      ))}
+    </div>
+  );
 }
