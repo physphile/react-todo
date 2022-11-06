@@ -2,10 +2,13 @@ import styles from "../styles/components/SuperHeader.module.css";
 import SuperButtonIcon from "./UI/SuperButtonIcon";
 import { mergeClasses, switchTheme } from "../utils/utils";
 import IconsNames from "../utils/icons";
+import useLoadTasksList from "../hooks/loadTasksList";
 
 export default function SuperHeader() {
   const { menuItem, buttons, header, h1, menu } = styles;
   const { DarkMode } = IconsNames;
+
+  useLoadTasksList();
 
   const buttonsClass = mergeClasses("col-lg-4 end-xs col-xs-2 p-0", buttons);
   const headerClass = mergeClasses("row", header);

@@ -9,10 +9,9 @@ interface ITask {
 export default class Task {
   readonly id: number;
   readonly creationDate: Date;
-  readonly title: string;
 
   constructor(task: ITask) {
-    this.title = task.title;
+    this._title = task.title;
 
     if (task.id) this.id = task.id;
     else this.id = createId();
@@ -26,6 +25,16 @@ export default class Task {
     if (this._completed && task.completionDate)
       this._completionDate = task.completionDate;
     else if (this._completed) this._completionDate = new Date();
+  }
+
+  private _title: string;
+
+  get title(): string {
+    return this._title;
+  }
+
+  set title(value: string) {
+    this._title = value;
   }
 
   private _completed: boolean;
@@ -56,12 +65,22 @@ export default class Task {
 
   get(): ITask {
     return {
-      title: this.title,
+      title: this._title,
       id: this.id,
       completed: this._completed,
       completionDate: this._completionDate,
       creationDate: this.creationDate,
     };
+  }
+
+  toString() {
+    return JSON.stringify({
+      title: this._title,
+      id: this.id,
+      completed: this._completed,
+      completionDate: this._completionDate?.getTime(),
+      creationDate: this.creationDate.getTime(),
+    });
   }
 }
 

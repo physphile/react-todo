@@ -47,8 +47,8 @@ button:hover {
 }
 
 input[type="checkbox"] {
-    height: 25px;
-    width: 25px;
+    min-height: 25px;
+    min-width: 25px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

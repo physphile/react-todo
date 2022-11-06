@@ -6,6 +6,8 @@
     font-size: 18px;
     margin-right: 2em;
     flex: 1;
+    min-width: 2em;
+    text-overflow: ellipsis;
 }
 
 .input:focus {

@@ -12,20 +12,34 @@ export default function useAlterTasksList(): IAlterFunctions {
   const [tasksList, setTasksList] = useRecoilState<Task[]>(storeTasksList);
 
   const deleteTask = function (id: number): void {
-    setTasksList(tasksList.filter((x) => x.id !== id));
+    const newTasksList = tasksList.filter((x) => x.id !== id);
+    setTasksList(newTasksList);
+    updateLocalStorage(newTasksList);
+    console.log(`Delete task with id=${id}`);
   };
   const alterTask = function (id: number, newTask: Task): void {
     const index = tasksList.findIndex((x) => x.id === id);
-    setTasksList([
+    const newTasksList = [
       ...tasksList.slice(0, index),
       newTask,
       ...tasksList.slice(index + 1),
-    ]);
+    ];
+    setTasksList(newTasksList);
+    updateLocalStorage(newTasksList);
+    console.log(`Altered the task with id=${id}`);
   };
 
   const pushTask = function (newTask: Task): void {
-    setTasksList([...tasksList, newTask]);
+    const newTasksList = [...tasksList, newTask];
+    setTasksList(newTasksList);
+    updateLocalStorage(newTasksList);
+    console.log(`Pushed the task with id=${newTask.id}`);
   };
 
   return { pushTask, alterTask, deleteTask };
+}
+
+function updateLocalStorage(newTasksList: Task[]) {
+  localStorage.setItem("tasksList", `[${newTasksList.toString()}]`);
+  console.log("Local storage was updated");
 }
