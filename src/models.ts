@@ -63,16 +63,6 @@ export default class Task {
     this._completionDate = undefined;
   }
 
-  get(): ITask {
-    return {
-      title: this._title,
-      id: this.id,
-      completed: this._completed,
-      completionDate: this._completionDate,
-      creationDate: this.creationDate,
-    };
-  }
-
   toString() {
     return JSON.stringify({
       title: this._title,

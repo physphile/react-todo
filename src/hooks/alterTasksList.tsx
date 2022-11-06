@@ -19,6 +19,7 @@ export default function useAlterTasksList(): IAlterFunctions {
   };
   const alterTask = function (id: number, newTask: Task): void {
     const index = tasksList.findIndex((x) => x.id === id);
+    console.log(index);
     const newTasksList = [
       ...tasksList.slice(0, index),
       newTask,
@@ -40,6 +41,7 @@ export default function useAlterTasksList(): IAlterFunctions {
 }
 
 function updateLocalStorage(newTasksList: Task[]) {
+  console.log(newTasksList);
   localStorage.setItem("tasksList", `[${newTasksList.toString()}]`);
   console.log("Local storage was updated");
 }

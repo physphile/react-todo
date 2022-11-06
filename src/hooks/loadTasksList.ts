@@ -8,16 +8,20 @@ export default function useLoadTasksList() {
 
   useEffect(() => {
     const data = localStorage.getItem("tasksList");
+
     if (data) {
-      const newTasksList = JSON.parse(data).map((x: Task) => ({
-        title: x.title,
-        id: x.id,
-        completed: x.completed,
-        completionDate: x.completionDate
-          ? new Date(x.completionDate)
-          : undefined,
-        creationDate: new Date(x.creationDate),
-      }));
+      const newTasksList = JSON.parse(data).map(
+        (x: Task) =>
+          new Task({
+            title: x.title,
+            id: x.id,
+            completed: x.completed,
+            completionDate: x.completionDate
+              ? new Date(x.completionDate)
+              : undefined,
+            creationDate: new Date(x.creationDate),
+          })
+      );
       setTasksList(newTasksList);
       console.log("Tasks from localStorage were loaded");
     } else {

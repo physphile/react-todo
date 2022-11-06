@@ -31,7 +31,7 @@ export default function TasksListItem({
   };
 
   const changeTaskTitle = () => {
-    const newTask = new Task(task.get());
+    const newTask = new Task(task);
     newTask.title = newTitle;
     alterTask(newTask.id, newTask);
   };
