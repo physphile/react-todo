@@ -14,6 +14,11 @@ export default function TaskInput() {
 
   const { pushTask } = useAlterTasksList();
 
+  const addTask = () => {
+    pushTask(new Task({ title: newTaskTitle.trim() }));
+    setNewTaskTitle("");
+  };
+
   return (
     <form onSubmit={(e) => e.preventDefault()} className={form}>
       <input
@@ -23,11 +28,7 @@ export default function TaskInput() {
         value={newTaskTitle}
         onChange={(e) => setNewTaskTitle(e.target.value)}
       />
-      <SuperButtonIcon
-        iconName={Add}
-        className={button}
-        onClick={() => pushTask(new Task({ title: newTaskTitle }))}
-      />
+      <SuperButtonIcon iconName={Add} className={button} onClick={addTask} />
     </form>
   );
 }
