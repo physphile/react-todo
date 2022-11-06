@@ -45,3 +45,7 @@ export function getTimeAgo(ms: number) {
     else return `${minutes} minutes ago`;
   } else return "now";
 }
+
+export function mergeClasses(...classes: string[]) {
+  return classes.join(" ");
+}

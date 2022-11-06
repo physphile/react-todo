@@ -1,6 +1,6 @@
 import Task from "../models";
 import TasksListItem from "./TasksListItem";
-import styles from "./TasksList.module.css";
+import styles from "../styles/components/TasksList.module.css";
 
 interface TasksListProps {
   tasksList: Task[];

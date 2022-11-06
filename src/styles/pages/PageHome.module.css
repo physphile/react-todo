@@ -1,0 +1,12 @@
+.hr {
+    margin: 8px 0 32px 0;
+}
+
+.h2 {
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+.main {
+    padding: calc(32px + var(--header-height)) 0;
+}

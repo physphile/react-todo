@@ -23,11 +23,11 @@
     background: var(--background-color-elevation-4);
 }
 
-.disabled {
+.disabledClass {
     background: var(--background-color-elevation-2-disabled);
 }
 
-.disabled:hover {
+.disabledClass:hover {
     background: var(--background-color-elevation-8-disabled);
 }
 
@@ -38,7 +38,7 @@
     font-weight: 500;
 }
 
-.h3 {
-    flex: 1;
-    margin-left: 1em;
+.expandIcon {
+    pointer-events: none;
+    transition: transform .3s ease;
 }
