@@ -4,18 +4,11 @@
     border: none;
     font-size: 18px;
     font-weight: bold;
-    outline: none;
     flex: 1;
     min-width: 2em;
     text-overflow: ellipsis;
 }
 
-.editIconClass {
+.edit {
     margin-right: 1em;
-}
-
-.remove {
-    font-weight: bold;
-    color: var(--color-error);
-    font-size: 14px;
 }

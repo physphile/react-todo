@@ -1,13 +1,13 @@
 import PageHome from "./components/pages/PageHome";
 import SuperHeader from "./components/SuperHeader";
-import { RecoilRoot } from "recoil";
+import TasksListProvider from "./hooks/TasksList";
 
 function App() {
   return (
-    <RecoilRoot>
-      <SuperHeader />
-      <PageHome />
-    </RecoilRoot>
+      <TasksListProvider>
+              <SuperHeader />
+              <PageHome />
+      </TasksListProvider>
   );
 }
 

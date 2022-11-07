@@ -3,7 +3,7 @@ import styles from "../../styles/UI/SuperButtonIcon.module.css";
 import IconsNames from "../../utils/icons";
 import { mergeClasses } from "../../utils/utils";
 
-interface SuperButtonIconProps {
+type Props =  {
   iconName: IconsNames;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
@@ -15,15 +15,19 @@ export default function SuperButtonIcon({
   onClick = () => {},
   className = "",
   style,
-}: SuperButtonIconProps) {
-  const { button } = styles;
-
-  const btnClass = mergeClasses(className, button);
+}: Props) {
+  const btnClass = mergeClasses(className, styles.button);
   const spanClass = mergeClasses("material-symbols-outlined", "color-inherit");
 
   return (
-    <button onClick={onClick} className={btnClass} style={style}>
-      <span className={spanClass}>{iconName}</span>
+    <button
+        onClick={onClick}
+        className={btnClass}
+        style={style}
+    >
+      <span className={spanClass}>
+        {iconName}
+      </span>
     </button>
   );
 }

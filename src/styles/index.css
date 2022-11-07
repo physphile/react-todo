@@ -4,6 +4,7 @@
     box-sizing: border-box;
     color: var(--text-color-primary);
     font-family: Roboto, sans-serif;
+    outline: none;
 }
 
 button {
@@ -54,7 +55,6 @@ input[type="checkbox"] {
     appearance: none;
     border: 2px solid var(--color-primary);
     border-radius: 50%;
-    outline: none;
     transition-duration: 0.3s;
     background-color: var(--background-color-elevation-2);
     cursor: pointer;

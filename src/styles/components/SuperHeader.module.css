@@ -1,24 +1,13 @@
-.menu {
-    display: flex;
-    column-gap: 1em;
-    padding: 0;
-}
-
 .buttons {
     display: flex;
     justify-content: flex-end;
-}
-
-.menuItem {
-    background: none;
-    border: none;
-    font-size: 18px;
 }
 
 .header {
     height: var(--header-height);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 16px;
     position: fixed;
     top: 0;
@@ -46,10 +35,4 @@
 .h1 {
     font-family: Montserrat, sans-serif;
     color: var(--color-primary);
-}
-
-@media screen and (max-width: 575px) {
-    .header {
-        padding: 0;
-    }
 }

@@ -2,31 +2,19 @@ import styles from "../styles/components/SuperHeader.module.css";
 import SuperButtonIcon from "./UI/SuperButtonIcon";
 import { mergeClasses, switchTheme } from "../utils/utils";
 import IconsNames from "../utils/icons";
-import useLoadTasksList from "../hooks/loadTasksList";
 
 export default function SuperHeader() {
-  const { menuItem, buttons, header, h1, menu } = styles;
-  const { DarkMode } = IconsNames;
-
-  useLoadTasksList();
-
-  const buttonsClass = mergeClasses("col-lg-4 end-xs col-xs-2 p-0", buttons);
-  const headerClass = mergeClasses("row", header);
+  const headerClass = mergeClasses("row", styles.header);
 
   return (
     <header className={headerClass}>
-      <div className="col-lg-4 hidden-xs hidden-md hidden-sm p-0">
-        <h1 className={h1}>Physphile's Todo</h1>
-      </div>
-      <div className="col-lg-4 col-xs-10 p-0">
-        <menu className={menu}>
-          <button className={menuItem}>Home</button>
-          <button className={menuItem}>Settings</button>
-        </menu>
-      </div>
-      <div className={buttonsClass}>
-        <SuperButtonIcon iconName={DarkMode} onClick={switchTheme} />
-      </div>
+        <h1 className={styles.h1}>
+            Physphile's Todo
+        </h1>
+        <SuperButtonIcon
+            iconName={IconsNames.DarkMode}
+            onClick={switchTheme}
+        />
     </header>
   );
 }

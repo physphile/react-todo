@@ -2,8 +2,8 @@ interface ITask {
   id?: number;
   title: string;
   completed?: boolean;
-  creationDate?: Date;
-  completionDate?: Date;
+  creationDate?: number;
+  completionDate?: number;
 }
 
 export default class Task {
@@ -19,11 +19,11 @@ export default class Task {
     if (typeof task.completed === "boolean") this._completed = task.completed;
     else this._completed = false;
 
-    if (task.creationDate) this.creationDate = task.creationDate;
+    if (task.creationDate) this.creationDate = new Date(task.creationDate);
     else this.creationDate = new Date();
 
     if (this._completed && task.completionDate)
-      this._completionDate = task.completionDate;
+      this._completionDate = new Date(task.completionDate);
     else if (this._completed) this._completionDate = new Date();
   }
 
@@ -35,6 +35,11 @@ export default class Task {
 
   set title(value: string) {
     this._title = value;
+  }
+
+  setTitle(title: string) {
+    this._title = title;
+    return this;
   }
 
   private _completed: boolean;
@@ -56,21 +61,31 @@ export default class Task {
   done() {
     this._completed = true;
     this._completionDate = new Date();
+    return this;
   }
 
   undone() {
     this._completed = false;
     this._completionDate = undefined;
+    return this;
   }
 
   toString() {
-    return JSON.stringify({
-      title: this._title,
+    return JSON.stringify(this.get());
+  }
+
+  get(): ITask {
+    return {
       id: this.id,
+      title: this._title,
       completed: this._completed,
-      completionDate: this._completionDate?.getTime(),
       creationDate: this.creationDate.getTime(),
-    });
+      completionDate: this._completionDate?.getTime()
+    }
+  }
+
+  static parse(tasks: string) {
+    return JSON.parse(tasks).map((task: any) => new Task(task))
   }
 }
 
