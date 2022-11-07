@@ -33,6 +33,11 @@
 
 </head>
 <body>
+<script>
+    const body = document.querySelector("body");
+    const isDark = matchMedia("(prefers-color-scheme: dark)").matches;
+    if (isDark) body.style.backgroundColor = "#121212";
+</script>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root" style="min-height: 100vh"></div>
 <!--

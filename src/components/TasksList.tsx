@@ -1,25 +1,23 @@
 import Task from "../models";
 import TasksListItem from "./TasksListItem";
 import styles from "../styles/components/TasksList.module.css";
-import { useState } from "react";
+import EditProvider from "../hooks/EditContext";
 
-interface TasksListProps {
+type Props = {
   tasksList: Task[];
 }
 
-export default function TasksList({ tasksList }: TasksListProps) {
-  const [editMode, setEditMode] = useState(false);
-
+export default function TasksList({ tasksList }: Props) {
   return (
-    <div className={styles.tasksList}>
-      {tasksList.map((task) => (
-        <TasksListItem
-          task={task}
-          key={task.id.toString()}
-          editMode={editMode}
-          setEditMode={setEditMode}
-        />
-      ))}
-    </div>
+        <EditProvider>
+            <div className={styles.tasksList}>
+                {tasksList.map((task) => (
+                    <TasksListItem
+                        task={task}
+                        key={task.id.toString()}
+                    />
+                ))}
+            </div>
+        </EditProvider>
   );
 }

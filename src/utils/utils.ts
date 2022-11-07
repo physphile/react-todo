@@ -22,7 +22,9 @@ export enum GlobalAttributes {
   Theme = "theme",
 }
 
-export function getTimeAgo(ms: number) {
+export function getTimeAgo(date: Date | undefined) {
+  if (typeof date === "undefined") return ""
+  const ms = Date.now() - date.getTime();
   let minutes = Math.trunc(ms / 60000);
   let hours = Math.trunc(minutes / 60);
   minutes %= 60;

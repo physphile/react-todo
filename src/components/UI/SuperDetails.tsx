@@ -4,18 +4,14 @@ import SuperButtonIcon from "./SuperButtonIcon";
 import { mergeClasses } from "../../utils/utils";
 import styles from "../../styles/UI/SuperDetails.module.css";
 
-interface SuperDetailsProps {
+type Props =  {
   children: React.ReactNode[];
   disabled?: boolean;
 }
 
-export default function SuperDetails({
-  children,
-  disabled,
-}: SuperDetailsProps) {
+export default function SuperDetails({children, disabled}: Props) {
   const { summary, details, disabledClass, expandIcon } = styles;
 
-  const { ExpandMore } = IconsNames;
   const [expandIconStyle, setExpandIconStyle] = useState({ transform: "none" });
   const switchSummaryIcon = (): void => {
     setExpandIconStyle(
@@ -25,20 +21,17 @@ export default function SuperDetails({
     );
   };
 
-  let expandIconClass, detailsClass: string;
-  if (disabled) {
-    expandIconClass = mergeClasses("high-emphasis-disabled", expandIcon);
-    detailsClass = mergeClasses(details, disabledClass);
-  } else {
-    expandIconClass = mergeClasses("high-emphasis", expandIcon);
-    detailsClass = details;
-  }
+  const expandIconClass = mergeClasses(disabled ? "high-emphasis-disabled" : "high-emphasis", expandIcon);
+  const detailsClass = mergeClasses(disabled ? disabledClass : "", details);
 
   return (
-    <details className={detailsClass} onToggle={switchSummaryIcon}>
+    <details
+        className={detailsClass}
+        onToggle={switchSummaryIcon}
+    >
       <summary className={summary}>
         <SuperButtonIcon
-          iconName={ExpandMore}
+          iconName={IconsNames.ExpandMore}
           style={expandIconStyle}
           className={expandIconClass}
         />

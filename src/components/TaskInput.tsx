@@ -1,34 +1,44 @@
 import SuperButtonIcon from "./UI/SuperButtonIcon";
-import { useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import IconsNames from "../utils/icons";
 import styles from "../styles/components/TaskInput.module.css";
-import useAlterTasksList from "../hooks/alterTasksList";
 import Task from "../models";
+import {useTasks} from "../hooks/TasksList";
 
 export default function TaskInput() {
-  const { Add } = IconsNames;
-
-  const { input, form, button } = styles;
-
   const [newTaskTitle, setNewTaskTitle] = useState("");
+  const inputRef = useRef(null);
 
-  const { pushTask } = useAlterTasksList();
+  const { push } = useTasks();
+  useEffect(() => {
+      const input = inputRef.current! as HTMLInputElement;
+      input.focus();
+  }, [])
 
   const addTask = () => {
-    pushTask(new Task({ title: newTaskTitle.trim() }));
-    setNewTaskTitle("");
+      const newTask = new Task({ title: newTaskTitle.trim() })
+      push(newTask);
+      setNewTaskTitle("");
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className={form}>
+    <form
+        onSubmit={e => e.preventDefault()}
+        className={styles.form}
+    >
       <input
         type="text"
+        ref={inputRef}
         placeholder="Add new task"
-        className={input}
+        className={styles.input}
         value={newTaskTitle}
-        onChange={(e) => setNewTaskTitle(e.target.value)}
+        onChange={e => setNewTaskTitle(e.target.value)}
       />
-      <SuperButtonIcon iconName={Add} className={button} onClick={addTask} />
+      <SuperButtonIcon
+          iconName={IconsNames.Add}
+          className={styles.button}
+          onClick={addTask}
+      />
     </form>
   );
 }

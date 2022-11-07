@@ -1,22 +1,21 @@
 import TasksList from "../TasksList";
 import styles from "../../styles/pages/PageHome.module.css";
-import Task from "../../models";
-import { useRecoilState } from "recoil";
-import storeTasksList from "../../store/tasksList";
 import TaskInput from "../TaskInput";
 import { mergeClasses } from "../../utils/utils";
+import {useTasks} from "../../hooks/TasksList";
 
 export default function PageHome() {
-  const { main, h2 } = styles;
-  const [tasksList] = useRecoilState<Task[]>(storeTasksList);
+  const {tasks} = useTasks();
 
-  const mainClass = mergeClasses("container", main);
+  const mainClass = mergeClasses("container", styles.main);
 
   return (
     <main className={mainClass}>
-      <h2 className={h2}>Todo list</h2>
+      <h2 className={styles.h2}>
+          Todo list
+      </h2>
       <TaskInput />
-      <TasksList tasksList={tasksList} />
+      <TasksList tasksList={tasks} />
     </main>
   );
 }
