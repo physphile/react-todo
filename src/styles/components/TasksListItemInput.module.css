@@ -12,3 +12,9 @@
 .edit {
     margin-right: 1em;
 }
+
+.form {
+    display: flex;
+    flex: 1;
+    min-width: 2em;
+}

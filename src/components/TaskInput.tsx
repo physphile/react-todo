@@ -16,9 +16,12 @@ export default function TaskInput() {
   }, [])
 
   const addTask = () => {
-      const newTask = new Task({ title: newTaskTitle.trim() })
-      push(newTask);
-      setNewTaskTitle("");
+      const newTitle = newTaskTitle.trim();
+      if (newTitle !== "") {
+          const newTask = new Task({ title:  newTitle})
+          push(newTask);
+          setNewTaskTitle("");
+      }
   };
 
   return (

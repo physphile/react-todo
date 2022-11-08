@@ -25,10 +25,12 @@
 
 .disabledClass {
     background: var(--background-color-elevation-2-disabled);
+    box-shadow: var(--box-shadow-elevation-2-disabled);
 }
 
 .disabledClass:hover {
     background: var(--background-color-elevation-8-disabled);
+    box-shadow: var(--box-shadow-elevation-8-disabled);
 }
 
 .details p {

@@ -11,7 +11,7 @@ type Props = {
     task: Task;
 }
 
-export default function TaskListItemInput ({task}: Props) {
+export default function TasksListItemInput ({task}: Props) {
     const inputRef = useRef(null);
     const [newTitle, setNewTitle] = useState(task.title);
     const {isEditing, start, end} = useEditContext();
@@ -23,6 +23,8 @@ export default function TaskListItemInput ({task}: Props) {
 
     const endEdit = () => {
         end();
+        const input = inputRef.current! as HTMLInputElement;
+        input.setSelectionRange(0, 0);
         setDisabled(true);
         setEditIcon(IconsNames.Edit);
         setTitle(task.id, newTitle);
@@ -43,11 +45,15 @@ export default function TaskListItemInput ({task}: Props) {
         if (!disabled) {
             const input = inputRef.current! as HTMLInputElement;
             input.focus();
+            input.setSelectionRange(newTitle.length, newTitle.length);
         }
     }, [disabled])
 
     return (
-        <>
+        <form
+            onSubmit={e => e.preventDefault()}
+            className={styles.form}
+        >
             <input
                 type="text"
                 ref={inputRef}
@@ -61,6 +67,6 @@ export default function TaskListItemInput ({task}: Props) {
                 onClick={iconClick}
                 className={styles.edit}
             />
-        </>
+        </form>
     )
 }

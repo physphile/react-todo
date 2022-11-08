@@ -17,6 +17,7 @@ button {
     padding: 8px;
     border-radius: 4px;
     transition: background-color .2s ease;
+    font-size: inherit;
 }
 
 button:hover {
