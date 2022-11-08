@@ -7,7 +7,7 @@ type Props = {
     task: Task
 }
 
-export default function TaskListItemInfo ({task}: Props) {
+export default function TasksListItemInfo ({task}: Props) {
     const {remove} = useTasks();
 
     const infoTextClass = task.completed ? "text-disabled" : "";
@@ -17,6 +17,9 @@ export default function TaskListItemInfo ({task}: Props) {
 
     return (
         <>
+            <p className={infoTextClass}>
+                {task.title}
+            </p>
             <p className={infoTextClass}>
                 Created {creationTimeAgo}
             </p>

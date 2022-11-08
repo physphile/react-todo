@@ -72,7 +72,6 @@ export default function TasksListProvider({children}: Props) {
     }, [])
 
     useEffect(() => {
-        console.log("state was changed", state)
         if (state.length !== 0) {
             localStorage.setItem("tasks", `[${state.toString()}]`)
         }

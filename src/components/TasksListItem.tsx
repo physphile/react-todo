@@ -1,8 +1,8 @@
 import Task from "../models";
 import SuperDetails from "./UI/SuperDetails";
 import {useTasks} from "../hooks/TasksList";
-import TaskListItemInfo from "./TaskListItemInfo";
-import TaskListItemInput from "./TaskListItemInput";
+import TasksListItemInfo from "./TasksListItemInfo";
+import TasksListItemInput from "./TasksListItemInput";
 
 type Props = {
   task: Task;
@@ -18,14 +18,14 @@ export default function TasksListItem({task}: Props) {
   return (
     <SuperDetails disabled={task.completed}>
       <>
-        <TaskListItemInput task={task} />
+        <TasksListItemInput task={task} />
         <input
           type="checkbox"
           onChange={switchTaskCompletion}
           checked={task.completed}
         />
       </>
-      <TaskListItemInfo task={task} />
+      <TasksListItemInfo task={task} />
 
     </SuperDetails>
   );

@@ -8,6 +8,7 @@ type Props =  {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
   style?: object;
+  type?: "button" | "submit" | "reset" | undefined
 }
 
 export default function SuperButtonIcon({
@@ -15,12 +16,14 @@ export default function SuperButtonIcon({
   onClick = () => {},
   className = "",
   style,
+  type
 }: Props) {
   const btnClass = mergeClasses(className, styles.button);
   const spanClass = mergeClasses("material-symbols-outlined", "color-inherit");
 
   return (
     <button
+        type={type}
         onClick={onClick}
         className={btnClass}
         style={style}
