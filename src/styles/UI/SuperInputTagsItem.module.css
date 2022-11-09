@@ -1,0 +1,39 @@
+.tag {
+    border-radius: 9999999px;
+    display: flex;
+    padding: 0 8px 0 0;
+    column-gap: 4px;
+    height: 22px;
+    max-width: 100%;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.tag>p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tag > span {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 18px;
+    font-size: 22px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.tag>div{
+    height: 20px;
+    width: 20px;
+    border-radius: 9999999px;
+    margin-right: 4px;
+}

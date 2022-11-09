@@ -4,6 +4,7 @@ interface ITask {
   completed?: boolean;
   creationDate?: number;
   completionDate?: number;
+  tags?: string[];
 }
 
 export default class Task {
@@ -25,12 +26,21 @@ export default class Task {
     if (this._completed && task.completionDate)
       this._completionDate = new Date(task.completionDate);
     else if (this._completed) this._completionDate = new Date();
+
+    if (task.tags) {
+      this._tags = task.tags;
+    } else this._tags = [];
   }
 
   private _title: string;
+  private _tags: Array<string>;
 
   get title(): string {
     return this._title;
+  }
+
+  get tags(): string[] {
+    return this._tags;
   }
 
   set title(value: string) {
@@ -39,6 +49,23 @@ export default class Task {
 
   setTitle(title: string) {
     this._title = title;
+    return this;
+  }
+
+  setTags(tags: string[]) {
+    this._tags = tags;
+    return this;
+  }
+
+  addTag(tag: string) {
+    if (!this._tags.find(t => t === tag)) {
+      this._tags.push(tag);
+    }
+    return this;
+  }
+
+  removeTag(tag: string) {
+    this._tags = this._tags.filter(t => t !== tag);
     return this;
   }
 
@@ -80,7 +107,8 @@ export default class Task {
       title: this._title,
       completed: this._completed,
       creationDate: this.creationDate.getTime(),
-      completionDate: this._completionDate?.getTime()
+      completionDate: this._completionDate?.getTime(),
+      tags: this._tags
     }
   }
 

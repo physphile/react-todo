@@ -2,11 +2,16 @@
     margin-left: 1em;
     background: none;
     border: none;
+    border-bottom: 1px solid var(--text-color-primary);
     font-size: 18px;
     font-weight: bold;
     flex: 1;
     min-width: 2em;
     text-overflow: ellipsis;
+}
+
+.title:disabled {
+    border: none;
 }
 
 .edit {

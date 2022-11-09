@@ -2,6 +2,7 @@ import styles from "../styles/components/TasksListItemInfo.module.css";
 import {getTimeAgo} from "../utils/utils";
 import Task from "../models";
 import {useTasks} from "../hooks/TasksList";
+import SuperInputTags from "./UI/SuperInputTags";
 
 type Props = {
     task: Task
@@ -17,7 +18,7 @@ export default function TasksListItemInfo ({task}: Props) {
 
     return (
         <>
-            <p className={infoTextClass}>
+            <p className={infoTextClass} style={{marginTop: ".5em"}}>
                 {task.title}
             </p>
             <p className={infoTextClass}>
@@ -28,6 +29,7 @@ export default function TasksListItemInfo ({task}: Props) {
                     Completed {completionTimeAgo}
                 </p>
             )}
+            <SuperInputTags task={task}/>
             <button
                 className={styles.remove}
                 onClick={() => remove(task.id)}
