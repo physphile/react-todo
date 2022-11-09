@@ -11,6 +11,13 @@
     border-radius: 0;
     padding: 8px 16px;
 }
+.group>button:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.group>button:last-child {
+    border-radius: 0 10px 10px 0;
+}
 
 @media screen and (max-width: 575px) {
     .group {

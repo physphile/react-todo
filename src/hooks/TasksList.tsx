@@ -7,7 +7,9 @@ enum ActionTypes {
     Undone = "undone",
     SetTitle = "setTitle",
     Remove = "remove",
-    SetTasks = "setTasks"
+    SetTasks = "setTasks",
+    AddTag = "addTag",
+    RemoveTag = "removeTag"
 }
 
 type State = Array<Task>
@@ -16,7 +18,8 @@ type Action = {
     id?: number,
     task?: Task,
     title?: string,
-    tasks?: Task[]
+    tasks?: Task[],
+    tag?: string
 }
 
 const reducer = (state: State, action: Action): State => {
@@ -34,6 +37,10 @@ const reducer = (state: State, action: Action): State => {
             return state.filter(task => task.id !== action.id);
         case ActionTypes.SetTasks:
             return action.tasks!;
+        case ActionTypes.AddTag:
+            return state.map(task => task.id === action.id ? task.addTag(action.tag!) : task);
+        case ActionTypes.RemoveTag:
+            return state.map(task => task.id === action.id ? task.removeTag(action.tag!) : task);
         default: return state;
     }
 }
@@ -45,7 +52,9 @@ const TasksListContext = createContext({
     undone: (id: number) => {},
     setTitle: (id: number, title: string) => {},
     remove: (id: number) => {},
-    setTasks: (tasks: Task[]) => {}
+    setTasks: (tasks: Task[]) => {},
+    addTag: (id: number, tag: string)  => {},
+    removeTag: (id: number, tag: string) => {}
 })
 
 type Props =  {
@@ -65,6 +74,8 @@ export default function TasksListProvider({children}: Props) {
     const undone = (id: number) => dispatch({type: ActionTypes.Undone, id})
     const setTitle = (id: number, title: string) => dispatch({type: ActionTypes.SetTitle, id, title})
     const setTasks = (tasks: Task[]) => dispatch({type: ActionTypes.SetTasks, tasks});
+    const addTag = (id: number, tag: string) => dispatch({type: ActionTypes.AddTag, id, tag});
+    const removeTag = (id: number, tag: string) => dispatch({type: ActionTypes.RemoveTag, id, tag});
 
     useEffect(() => {
         const data = localStorage.getItem("tasks")
@@ -78,7 +89,19 @@ export default function TasksListProvider({children}: Props) {
     }, [state])
 
     return (
-        <TasksListContext.Provider value={{tasks: state, push, done, undone, setTitle, remove, setTasks}}>
+        <TasksListContext.Provider 
+        value={{
+                tasks: state, 
+                push, 
+                done, 
+                undone, 
+                setTitle, 
+                remove, 
+                setTasks, 
+                addTag, 
+                removeTag
+            }}
+        >
             {children}
         </TasksListContext.Provider>
     )

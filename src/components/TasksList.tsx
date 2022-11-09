@@ -18,6 +18,9 @@ export default function TasksList({ tasksList }: Props) {
                     />
                 ))}
             </div>
+            {tasksList.length === 0 && 
+              <p style={{color: "var(--text-color-helper)"}}>List is empty</p>
+            } 
         </EditProvider>
   );
 }
