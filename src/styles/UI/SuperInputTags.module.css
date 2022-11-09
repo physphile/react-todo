@@ -1,0 +1,31 @@
+.input {
+    background: none;
+    border: none;
+    flex: 1;
+    font-size: 15px;
+}
+.input:disabled {
+    display: none;
+}
+
+.disabled {
+    border-bottom: none;
+}
+.active {
+    border-bottom: 1px solid var(--text-color-primary);
+}
+
+
+.container {
+    margin-bottom: 16px;
+    padding: 6px 8px 8px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: .5em;
+    column-gap: 1em;
+}
+
+.container > p {
+    font-style: italic;
+    font-size: 18px;
+}
